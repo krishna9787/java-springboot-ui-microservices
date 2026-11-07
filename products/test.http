@@ -1,0 +1,15 @@
+### test 1: get product detail
+
+@host = http://localhost:8081
+@pageNo = 0
+@pageSize = 10
+
+### Get users
+GET {{host}}/api/products?pageNo={{pageNo}}&pageSize={{pageSize}}
+Accept: application/json
+
+>{%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200);
+    });
+ %}
